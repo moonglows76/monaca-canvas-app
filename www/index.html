@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="components/loader.js"></script>
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        $(function(){
+//             var myCanvas = $("#my-canvas").get(0);
+//             var myContext = myCanvas.getContext("2d");
+//             myContext.lineWidth = 5;
+// 
+//             myContext.strokeStyle = "red";
+//             myContext.beginPath();
+//             myContext.moveTo(50,50);
+//             myContext.lineTo(150,150);
+//             myContext.stroke();
+// 
+//             myContext.strokeStyle = "blue";
+//             myContext.beginPath();
+//             myContext.moveTo(150,150);
+//             myContext.lineTo(250,50);
+//             myContext.stroke();
+// 
+//             myContext.strokeStyle = "green";
+//             myContext.beginPath();
+//             myContext.moveTo(150,150);
+//             myContext.lineTo(150,270);
+//             myContext.stroke();
+
+            $("#my-canvas").on("touchstart",function(event){
+                event.preventDefault();
+                $("#info").text("touchstart" + 
+                    " x:" +
+                    event.originalEvent.touches[0].pageX +
+                    " y:" +
+                    event.originalEvent.touches[0].pageY
+                    );
+            }).on("touchmove",function(event){
+                $("#info").text("touchmove" + 
+                    " x:" +
+                    event.originalEvent.touches[0].pageX +
+                    " y:" +
+                    event.originalEvent.touches[0].pageY
+                    );
+            }).on("touchend",function(event){
+                $("#info").text("touchend");
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div id="info">INFO</div>
+    <canvas id="my-canvas" width="300" height="300"></canvas>
+</body>
+</html>
